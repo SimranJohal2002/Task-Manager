@@ -20,5 +20,5 @@ CREATE TABLE IF NOT EXISTS task (
     FOREIGN KEY (userid) REFERENCES user(userid)
 );
 
-CREATE USER 'appuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'app2027';
-GRANT ALL PRIVILEGES ON taskmanager.* TO 'appuser'@'localhost';
+-- CREATE USER 'appuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'app2027';
+-- GRANT ALL PRIVILEGES ON taskmanager.* TO 'appuser'@'localhost';
