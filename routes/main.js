@@ -204,7 +204,7 @@ module.exports = function (app, appData) {
         if (err) {
                return res.redirect('./')
       }
-      res.json({ message: 'Logout successful' });
+      res.send("logged out")
     })
     });
   };
