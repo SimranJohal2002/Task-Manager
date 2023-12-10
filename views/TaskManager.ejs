@@ -82,7 +82,7 @@
         }
 
         function logou() {
-          fetch('/logout', { method: 'POST' })
+          fetch('/logou', { method: 'POST' })
             .then((response) => response.json())
             .then((data) => {
               window.location.href = '/login';
