@@ -81,13 +81,27 @@
           console.log('Search Input:', searchInput);
         }
 
-        function logou() {
-          fetch('/logou', { method: 'POST' })
-            .then((response) => response.json())
-            .then((data) => {
-              window.location.href = '/login';
-            });
-        }
+        // function logou() {
+        //   fetch('/logou', { method: 'POST' })
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //       window.location.href = '/login';
+        //     });
+        // }
+        function logout() {
+  fetch('/logout', { method: 'POST' })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.message === 'Logout successful') {
+        window.location.href = '/';
+      } else {
+        console.error('Logout failed:', data.message);
+      }
+    })
+    .catch((error) => {
+      console.error('Error during logout:', error);
+    });
+}
 
         function updateTable(data) {
           var tbody = document.querySelector('#table tbody');

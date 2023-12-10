@@ -193,7 +193,7 @@ module.exports = function (app, appData) {
       });
     });
   
-    app.post('/logou', function (req, res) {
+    app.post('/logout', function (req, res) {
       req.session.destroy(function (err) {
         if (err) {
           console.error('Error destroying session:', err);
