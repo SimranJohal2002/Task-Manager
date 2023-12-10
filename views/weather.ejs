@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet"  type="text/css" href="/main.css" />
+</head>
+<body>
+  <h1>Weather Api</h1>
+  
+  <form action="/weather" method="GET">
+    <label for="city">Enter City:</label>
+    <input type="text" id="city" name="city" required>
+    <button type="submit">Get Weather</button>
+  </form>
+
+  <% if (weatherData) { %>
+    <h2>Weather Information</h2>
+    <p><%= weatherData %></p>
+  <% } %>
+
+  <button onclick="goToHomePage()">Go to Home Page</button>
+
+  <script>
+
+    function goToHomePage() {
+      window.location.href = '/';
+    }
+
+  </script>
+</body>
+</html>
