@@ -17,7 +17,7 @@ const db = mysql.createConnection ({
     host: 'localhost',
     user: 'appuser',
     password: 'app2027',
-    database: 'myBookshop'
+    database: 'taskmanager'
 });
 // Connect to the database
 db.connect((err) => {
@@ -41,10 +41,23 @@ app.set('view engine', 'ejs');
 app.engine('html', ejs.renderFile);
 
 // Define our data
-var shopData = {shopName: "Bertie's Books Wholesale Shop"}
+var appData = {appName: "Task Manager"}
 
 // Requires the main.js file inside the routes folder passing in the Express app and data as arguments.  All the routes will go in this file
-require("./routes/main")(app, shopData);
+require("./routes/main")(app, appData);
 
 // Start the web app listening
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+
+// document.addEventListener('DOMContentLoaded', function (){
+//     loadHTMLTable([]);
+// });
+
+// function loadHTMLTable(data) {
+//     const table = document.querySelector('table tbody');
+
+//     if(data.length === 0) {
+//         table.innerHTML = "<tr><td class='no-data' colspan='5'>No Data</td></tr>";
+//     }
+// }

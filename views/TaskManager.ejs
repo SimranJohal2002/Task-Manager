@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Task Manager</title>
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+  </head>
+  <body>
+    <main>
+        <h1>Task Manager</h1>
+        <!-- <form method="POST" action="/taskadded"></form>
+        <label>Task Name:</label>
+        <input type="text" id="name-input">
+        <input type="submit" value="Add Task" />
+        <button id="add-name-btn">Add Task</button>
+    </form> -->
+
+    <h1><%=appName%>: Add Task</h1>
+    <form method="POST" action="/taskadded">
+        <p>Task name: <input id="taskname" type="text" name="task" value="" /></p>
+        <input type="submit" value="Add Task" />
+      </form>
+
+        <div>
+            <input placeholder="search by task name" id="search-input">
+            <button id="search-btn">Search</button>
+        </div>
+
+        <table id="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Task Name</th>
+                <th>Task Description</th>
+                <th>Date Added</th>
+                <th>Date Completion</th>
+                <th>Delete</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% availableTasks.forEach(function(task) { %>
+                <tr>
+                    <td><%= task.id %></td>
+                  <td><%= task.taskname %></td>
+                  <td><%= task.taskdescription %></td>
+                  <td><%= task.dateadded %></td>
+                  <td><%= task.datecompletion %></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+
+        <!-- <table id="table">
+            <thread>
+                <th>ID</th>
+                <th>Task Name</th>
+                <th>Task Description</th>
+                <th>Date Added</th>
+                <th>Date Completion</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </thread>
+            <tbody></tbody>
+        </table> -->
+
+        <!-- <ul>
+            <% availableTasks.forEach(function(task) { %>
+              <li><%= task.taskname %></li>
+            <% }) %>
+          </ul> -->
+    </main>
+  </body>
+</html>
