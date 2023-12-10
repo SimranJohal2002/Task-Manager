@@ -78,7 +78,7 @@ module.exports = function (app, appData) {
   
           // Registration successful
           res.send(`
-                  <p>Registration successful. Please <a href="/login">login</a>.</p>
+                  <p>Registration successful. Please <a href="usr/624/login">login</a>.</p>
               `);
         });
       });
