@@ -1,73 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Task Manager</title>
-    <link rel="stylesheet"  type="text/css" href="/main.css" />
+    <link rel="stylesheet" type="text/css" href="/main.css" />
   </head>
   <body>
     <main>
-        <h1>Task Manager</h1>
-        <!-- <form method="POST" action="/taskadded"></form>
-        <label>Task Name:</label>
-        <input type="text" id="name-input">
-        <input type="submit" value="Add Task" />
-        <button id="add-name-btn">Add Task</button>
-    </form> -->
-
-    <h1><%=appName%>: Add Task</h1>
-    <form method="POST" action="/taskadded">
-        <p>Task name: <input id="taskname" type="text" name="task" value="" /></p>
+      <h1><%=appName%>: Add Task</h1>
+      <form
+        id="addTaskForm"
+        method="POST"
+        action="/taskadded"
+        onsubmit="return confirmAddTask()"
+      >
+        <p>
+          Task name: <input id="taskname" type="text" name="task" value="" />
+        </p>
+        <p>
+          Task description:
+          <input
+            id="taskdescription"
+            type="text"
+            name="taskdescription"
+            value=""
+          />
+        </p>
         <input type="submit" value="Add Task" />
       </form>
 
-        <div>
-            <input placeholder="search by task name" id="search-input">
-            <button id="search-btn">Search</button>
-        </div>
+      <div>
+        <input placeholder="Search by task name" id="search-input" />
+        <button id="search-btn" onclick="searchTasks()">Search</button>
+        <button id="logout-btn" onclick="logout()">Logout</button>
+      </div>
 
-        <table id="table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Task Name</th>
-                <th>Task Description</th>
-                <th>Date Added</th>
-                <th>Date Completion</th>
-                <th>Delete</th>
-                <th>Edit</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% availableTasks.forEach(function(task) { %>
-                <tr>
-                    <td><%= task.id %></td>
-                  <td><%= task.taskname %></td>
-                  <td><%= task.taskdescription %></td>
-                  <td><%= task.dateadded %></td>
-                  <td><%= task.datecompletion %></td>
-                </tr>
-              <% }) %>
-            </tbody>
-          </table>
+      <table id="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Task Name</th>
+            <th>Task Description</th>
+            <th>Date Added</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% availableTasks.forEach(function(task) { %>
+          <tr>
+            <td><%= task.id %></td>
+            <td><%= task.taskname %></td>
+            <td><%= task.taskdescription %></td>
+            <td><%= task.dateadded %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
 
-        <!-- <table id="table">
-            <thread>
-                <th>ID</th>
-                <th>Task Name</th>
-                <th>Task Description</th>
-                <th>Date Added</th>
-                <th>Date Completion</th>
-                <th>Delete</th>
-                <th>Edit</th>
-            </thread>
-            <tbody></tbody>
-        </table> -->
+      <script>
+        function confirmAddTask() {
+          var taskName = document.getElementById('taskname').value;
+          var taskDescription =
+            document.getElementById('taskdescription').value;
 
-        <!-- <ul>
-            <% availableTasks.forEach(function(task) { %>
-              <li><%= task.taskname %></li>
-            <% }) %>
-          </ul> -->
+          if (!taskName || !taskDescription) {
+            alert('Please fill both Task Name and Task Description.');
+            return false;
+          }
+
+          return confirm('Are you sure you want to add this task?');
+        }
+
+        function searchTasks() {
+          var searchInput = document.getElementById('search-input').value;
+
+          fetch(`/search?query=${searchInput}`)
+            .then((response) => response.json())
+            .then((data) => {
+              updateTable(data);
+            });
+
+          console.log('Search Input:', searchInput);
+        }
+
+        function logout() {
+          fetch('/logout', { method: 'POST' })
+            .then((response) => response.json())
+            .then((data) => {
+              window.location.href = '/login';
+            });
+        }
+
+        function updateTable(data) {
+          var tbody = document.querySelector('#table tbody');
+
+          // Clear the existing rows
+          tbody.innerHTML = '';
+
+          data.forEach(function (task) {
+            var row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${task.id}</td>
+              <td>${task.taskname}</td>
+              <td>${task.taskdescription}</td>
+              <td>${task.dateadded}</td>
+            `;
+            tbody.appendChild(row);
+          });
+        }
+      </script>
     </main>
   </body>
 </html>

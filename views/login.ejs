@@ -1,15 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Login for <%=appName%></title>
-    <link rel="stylesheet"  type="text/css" href="/main.css" />
+    <link rel="stylesheet" type="text/css" href="/main.css" />
   </head>
   <body>
     <h1>Login for <%=appName%></h1>
-    <form method="POST" action="/loggedin">
-        <p>Username: <input id="username" type="text" name="username" value="username"/></p>
-        <p>Password: <input id="password" type="text" name="password" value="password"/></p>
-        <input type="submit" value="Login" />
-      </form>
+    <form method="POST" action="/loggedin" onsubmit="return validateForm()">
+      <p>
+        Username:
+        <input
+          id="username"
+          type="text"
+          name="username"
+          placeholder="Username"
+        />
+      </p>
+      <p>
+        Password:
+        <input
+          id="password"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+      </p>
+      <input type="submit" value="Login" />
+    </form>
+
+    <button onclick="goToHomePage()">Go to Home Page</button>
+
+    <script>
+      function validateForm() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        if (!username || !password) {
+          alert('Please fill in both Username and Password.');
+          return false;
+        }
+
+        return true;
+      }
+
+      function goToHomePage() {
+        window.location.href = '/';
+      }
+    </script>
   </body>
 </html>
