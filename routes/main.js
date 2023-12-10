@@ -194,11 +194,17 @@ module.exports = function (app, appData) {
     });
   
     app.post('/logout', function (req, res) {
-      req.session.destroy(function (err) {
+      // req.session.destroy(function (err) {
+      //   if (err) {
+      //     console.error('Error destroying session:', err);
+      //   }
+      //   res.json({ message: 'Logout successful' });
+      // });
+      req.session.destroy(err => {
         if (err) {
-          console.error('Error destroying session:', err);
-        }
-        res.json({ message: 'Logout successful' });
-      });
+               return res.redirect('./')
+      }
+      res.json({ message: 'Logout successful' });
+    })
     });
   };
