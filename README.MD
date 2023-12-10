@@ -22,3 +22,4 @@ APPLICATION INSTRUCTIONS:
 - To access the weather api and about page you must not be logged in, so logout if you are.
 - You have to register then login to use the task manager page.
 - An account you can login in with is "test" for username and "test" for password.
+- After search something with the search bar, just empty the search bar then press search to resee the whole table
