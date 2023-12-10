@@ -7,5 +7,17 @@
   <body>
     <h1>About <%=appName%></h1>
     <p>This is a task manager to manage tasks!</p>
+    <p>You can create an account, login and start adding tasks to your task manager.</p>
+    <p>You can also search for tasks if your task manager starts to get to long.</p>
+
+    <button onclick="goToHomePage()">Go to Home Page</button>
+
+    <script>
+
+      function goToHomePage() {
+        window.location.href = '/';
+      }
+
+    </script>
   </body>
 </html>
