@@ -82,10 +82,10 @@
         }
 
         function logou() {
-          fetch('/logou', { method: 'POST' })
+          fetch('/logout', { method: 'POST' })
             .then((response) => response.json())
             .then((data) => {
-              window.location.href = './login';
+              window.location.href = '/login';
             });
         }
 
