@@ -151,7 +151,7 @@ module.exports = function (app, appData) {
   
     app.get('/TaskManager', function (req, res) {
       if (!req.session.userId) {
-        res.redirect('/login');
+        res.redirect('./login');
         return;
       }
   
