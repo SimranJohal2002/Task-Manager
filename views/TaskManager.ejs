@@ -72,7 +72,7 @@
         function searchTasks() {
           var searchInput = document.getElementById('search-input').value;
 
-          fetch(`./search?query=${searchInput}`)
+          fetch(`/search?query=${searchInput}`)
             .then((response) => response.json())
             .then((data) => {
               updateTable(data);
@@ -85,7 +85,7 @@
           fetch('/logout', { method: 'POST' })
             .then((response) => response.json())
             .then((data) => {
-              window.location.href = './login';
+              window.location.href = '/login';
             });
         }
 
