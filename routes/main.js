@@ -125,7 +125,7 @@ module.exports = function (app, appData) {
   
     app.post('/taskadded', function (req, res) {
       if (!req.session.userId) {
-        res.redirect('/login');
+        res.redirect('./login');
         return;
       }
   
