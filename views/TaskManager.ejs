@@ -82,7 +82,7 @@
         }
 
         function logout() {
-          fetch('/usr/624/logout', { method: 'POST' })
+          fetch('./login', { method: 'POST' })
             .then((response) => response.json())
             .then((data) => {
               window.location.href = './login';
