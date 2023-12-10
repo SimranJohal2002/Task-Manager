@@ -31,7 +31,7 @@
       <div>
         <input placeholder="Search by task name" id="search-input" />
         <button id="search-btn" onclick="searchTasks()">Search</button>
-        <button id="logout-btn" onclick="logout()">Logout</button>
+        <button id="logout-btn" onclick="logou()">Logout</button>
       </div>
 
       <table id="table">
@@ -82,7 +82,7 @@
         }
 
         function logout() {
-          fetch('/logout', { method: 'POST' })
+          fetch('/logou', { method: 'POST' })
             .then((response) => response.json())
             .then((data) => {
               window.location.href = './login';
