@@ -111,7 +111,7 @@ module.exports = function (app, appData) {
           if (match) {
             req.session.userId = userId;
   
-            res.redirect('/taskmanager');
+            res.redirect('usr/624/taskmanager');
           } else {
             res.send('Invalid username or password');
           }
