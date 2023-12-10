@@ -1,56 +1,72 @@
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    color: darkcyan;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: rebeccapurple;
+  text-align: center; /* Center the text */
+  font-weight: bold; /* Make it bold */
+  text-decoration: underline; 
 }
 
 h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    color: cadetblue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: rebeccapurple;
 }
 
 p,li {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  color: green;
 }
 
 a:link {
-    color: orangered;
-    text-decoration: none;
-    padding:5px;
-  }
-  
-  /* visited link */
-  a:visited {
-    color: tomato;
-    text-decoration: none;
-    padding:5px;
-  }
-  
-  /* mouse over link */
-  a:hover {
-    color: white;
-    text-decoration: none;
-    background-color: orangered;
-    padding:5px;
-  }
-  
-  /* selected link */
-  a:active {
-    color: blue;
-    text-decoration: none;
-    padding:5px;
-  }
+  color: green;
+  text-decoration: none;
+  padding:5px;
+  margin-right: 10px; /* Adjust the spacing between links */
+  border: 1px solid green; /* Add a border for distinction */
+  border-radius: 5px;
+  display: inline-block;
+}
 
-  table{
-    margin: 50px auto;
-  }
+/* visited link */
+a:visited {
+  color: green;
+  text-decoration: none;
+  padding:5px;
+  margin-right: 10px; /* Adjust the spacing between links */
+  border: 1px solid green; /* Add a border for distinction */
+  border-radius: 5px;
+  display: inline-block;
+}
 
-  table, th, td{
-    border-collapse: collapse;
-    border: 1px solid #000;
-  }
+/* mouse over link */
+a:hover {
+  color: white;
+  text-decoration: none;
+  background-color: orangered;
+  padding:5px;
+}
 
-  th, td{
-    padding: 5px;
-  }
+/* selected link */
+a:active {
+  color: blue;
+  text-decoration: none;
+  padding:5px;
+}
+
+table{
+  margin: 50px auto;
+}
+
+table, th, td{
+  border-collapse: collapse;
+  border: 1px solid #000;
+}
+
+th, td{
+  padding: 5px;
+}
+
+label{
+  color: green;
+}
