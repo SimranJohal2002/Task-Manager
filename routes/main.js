@@ -111,7 +111,7 @@ module.exports = function (app, appData) {
           if (match) {
             req.session.userId = userId;
   
-            res.redirect('/taskmanager');
+            res.redirect('usr/624/taskmanager');
           } else {
             res.send('Invalid username or password');
           }
@@ -125,7 +125,7 @@ module.exports = function (app, appData) {
   
     app.post('/taskadded', function (req, res) {
       if (!req.session.userId) {
-        res.redirect('/login');
+        res.redirect('usr/624/login');
         return;
       }
   
@@ -142,16 +142,16 @@ module.exports = function (app, appData) {
       db.query(sqlquery, newrecord, (err, result) => {
         if (err) {
           console.error(err.message);
-          res.redirect('/TaskManager');
+          res.redirect('usr/624/TaskManager');
         } else {
-          res.redirect('/TaskManager');
+          res.redirect('usr/624/TaskManager');
         }
       });
     });
   
     app.get('/TaskManager', function (req, res) {
       if (!req.session.userId) {
-        res.redirect('/login');
+        res.redirect('usr/624/login');
         return;
       }
   
