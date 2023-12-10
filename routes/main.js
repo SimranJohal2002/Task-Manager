@@ -142,9 +142,9 @@ module.exports = function (app, appData) {
       db.query(sqlquery, newrecord, (err, result) => {
         if (err) {
           console.error(err.message);
-          res.redirect('/TaskManager');
+          res.redirect('./TaskManager');
         } else {
-          res.redirect('/TaskManager');
+          res.redirect('./TaskManager');
         }
       });
     });
