@@ -23,3 +23,6 @@ APPLICATION INSTRUCTIONS:
 - You have to register then login to use the task manager page.
 - An account you can login in with is "test" for username and "test" for password.
 - After search something with the search bar, just empty the search bar then press search to resee the whole table
+
+
+There is an error with the logout function in the running application URL. However when you open the application on a local system the logout feature works. I dont really know how to fix this as I think there is a problem with the igor server and not my code.
